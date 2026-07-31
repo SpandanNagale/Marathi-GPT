@@ -1,0 +1,31 @@
+# marathi-base — ~124M params (GPT-2 small shape). Final portfolio model.
+model:
+  n_layer: 12
+  n_head: 12
+  n_embd: 768
+  block_size: 1024
+  vocab_size: 32000
+  dropout: 0.0
+  bias: false
+
+train:
+  # 12GB VRAM: keep micro-batch modest, lean on grad accumulation.
+  micro_batch_size: 8
+  grad_accum_steps: 64       # effective batch = 8 * 1024 * 64 = 524,288 tokens/step
+  max_steps: 80000           # placeholder — recompute once corpus size is known (Phase 5)
+  warmup_ratio: 0.02
+  learning_rate: 6.0e-4
+  min_lr: 6.0e-5
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 250
+  eval_iters: 50
+  checkpoint_interval: 1000
+  keep_last_n: 3
+  compile: true
+  dtype: bfloat16
+
+data:
+  data_dir: data/bin

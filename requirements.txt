@@ -1,0 +1,20 @@
+torch>=2.3
+numpy<2  # fasttext-wheel 0.9.2 is unmaintained and breaks on numpy>=2's stricter copy=False semantics
+datasets
+huggingface_hub
+sentencepiece
+tokenizers
+tiktoken
+zstandard
+gdown
+xxhash
+datasketch
+fasttext-wheel
+regex
+tqdm
+wandb
+pyyaml
+matplotlib
+pandas
+gradio
+scikit-learn

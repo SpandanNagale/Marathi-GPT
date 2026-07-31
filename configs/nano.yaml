@@ -1,0 +1,30 @@
+# marathi-nano — ~15M params. Debug tier: proves the pipeline end-to-end in ~1 day.
+model:
+  n_layer: 6
+  n_head: 6
+  n_embd: 384
+  block_size: 512
+  vocab_size: 32000
+  dropout: 0.0
+  bias: false
+
+train:
+  micro_batch_size: 64
+  grad_accum_steps: 16       # effective batch = 64 * 512 * 16 = 524,288 tokens/step
+  max_steps: 20000           # placeholder — recompute once corpus size is known (Phase 5)
+  warmup_ratio: 0.02
+  learning_rate: 1.0e-3
+  min_lr: 1.0e-4
+  weight_decay: 0.1
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  eval_interval: 250
+  eval_iters: 50
+  checkpoint_interval: 1000
+  keep_last_n: 3
+  compile: true
+  dtype: bfloat16
+
+data:
+  data_dir: data/bin

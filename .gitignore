@@ -1,0 +1,36 @@
+# Data (large, regenerable from scripts)
+data/raw/
+data/clean/
+data/bin/
+data/models/
+
+# Checkpoints & logs
+checkpoints/
+wandb/
+*.pt
+*.ckpt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+
+# Tokenizer artifacts (regenerable)
+*.model
+*.vocab
+
+# OS / editor
+.DS_Store
+.vscode/
+*.log
+
+# Env
+.env
+
+# Claude Code tool-internal state
+.claude/
