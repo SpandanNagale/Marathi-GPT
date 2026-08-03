@@ -1,10 +1,16 @@
 torch>=2.3
+# Windows: install the CUDA build explicitly, e.g.
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# (verified against an RTX 5070 / CUDA 12.8 on this project)
+triton-windows; sys_platform == "win32"  # torch.compile's Inductor backend needs Triton;
+                                          # Linux/Mac CUDA wheels bundle it, Windows doesn't
 numpy<2  # fasttext-wheel 0.9.2 is unmaintained and breaks on numpy>=2's stricter copy=False semantics
 datasets
 huggingface_hub
 sentencepiece
 tokenizers
 tiktoken
+transformers  # for loading the Llama-3 tokenizer (fertility.py comparison)
 zstandard
 gdown
 xxhash

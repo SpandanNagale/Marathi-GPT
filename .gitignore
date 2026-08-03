@@ -3,6 +3,7 @@ data/raw/
 data/clean/
 data/bin/
 data/models/
+data/tokenizer/
 
 # Checkpoints & logs
 checkpoints/
