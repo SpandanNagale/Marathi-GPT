@@ -4,6 +4,8 @@ data/clean/
 data/bin/
 data/models/
 data/tokenizer/
+data/eval/
+data/sft/
 
 # Checkpoints & logs
 checkpoints/
